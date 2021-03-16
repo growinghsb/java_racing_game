@@ -17,6 +17,13 @@ public class Application {
 
     }
 
+    public static Map<String, Car> carMove(Map<String, Car> cars) {
+        for (String s : cars.keySet()) {
+            cars.get(s).move(random());
+        }
+        return cars;
+    }
+
     public static Map<String, Car> createCars(String[] carNames) {
         Map<String, Car> cars = new HashMap<>();
 
