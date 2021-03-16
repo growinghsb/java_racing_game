@@ -1,13 +1,8 @@
 package racingcar;
 
-import utils.RandomUtils;
+import java.util.*;
 
-import javax.swing.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
-import static utils.RandomUtils.*;
+import static utils.RandomUtils.nextInt;
 
 public class Application {
     public static void main(String[] args) {
@@ -22,12 +17,12 @@ public class Application {
     public static Map<String, Car> start(String[] carNames, int moveCount) {
         Map<String, Car> cars = createCars(carNames);
         for (int i = 0; i < moveCount; i++) {
-            carMove(cars);
+            carsMove(cars);
         }
         return cars;
     }
 
-    public static Map<String, Car> carMove(Map<String, Car> cars) {
+    public static Map<String, Car> carsMove(Map<String, Car> cars) {
         for (String s : cars.keySet()) {
             printRacing(s, cars.get(s).move(random()));
         }
@@ -59,7 +54,7 @@ public class Application {
 
     private static String[] inputCarNames(Scanner scanner) {
         System.out.println("경주할 자동차 이름을 입력하세요.\n(이름은 쉼표(,) 기준으로 구분)");
-        return scanner.nextLine().trim().split(",");
+        return scanner.nextLine().split(",");
     }
 
     private static int inputMoveCount(Scanner scanner) {

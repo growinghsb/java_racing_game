@@ -48,7 +48,6 @@ class ApplicationTest {
             assertThat(random).isLessThanOrEqualTo(9);
         }
     }
-
     private Map<String, Car> getCars() {
         Map<String, Car> cars = createCars(new String[]{"sb", "hsb"});
         return cars;

@@ -11,7 +11,6 @@ public class Car {
     // 추가 기능 구현
 
     public int move(int random) {
-
         if (random >= 4) {
             this.position = position + 1;
             return position;
