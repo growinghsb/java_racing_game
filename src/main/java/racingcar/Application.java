@@ -12,4 +12,8 @@ public class Application {
     private static String[] inputCarNames(Scanner scanner){
         return scanner.next().split(",");
     }
+
+    private static int inputMoveCount(Scanner scanner) {
+        return scanner.nextInt();
+    }
 }
