@@ -28,12 +28,14 @@ class ApplicationTest {
     @Test
     public void createCar_Method_Test() {
         //given (~ 가정했을 때)
-        Map<String, Car> cars = createCars(new String[]{"sb", "hsb"});
+        Map<String, Car> cars = getCars();
 
         //when (~ 할 때), then (그렇다면)
         assertThat(cars.get("sb")).isNotNull();
         assertThat(cars.get("hsb")).isNotNull();
     }
+
+
 
     @Test
     public void 랜덤_값_출력_테스트() {
@@ -45,5 +47,10 @@ class ApplicationTest {
             assertThat(random).isGreaterThanOrEqualTo(0);
             assertThat(random).isLessThanOrEqualTo(9);
         }
+    }
+
+    private Map<String, Car> getCars() {
+        Map<String, Car> cars = createCars(new String[]{"sb", "hsb"});
+        return cars;
     }
 }

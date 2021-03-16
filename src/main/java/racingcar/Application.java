@@ -2,6 +2,7 @@ package racingcar;
 
 import utils.RandomUtils;
 
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,15 +14,33 @@ public class Application {
         final Scanner scanner = new Scanner(System.in);
         // TODO 구현 진행
 
-        createCars(inputCarNames(scanner));
+        String[] carNames = inputCarNames(scanner);
+        int moveCount = inputMoveCount(scanner);
+        start(carNames, moveCount);
+    }
 
+    public static Map<String, Car> start(String[] carNames, int moveCount) {
+        Map<String, Car> cars = createCars(carNames);
+        for (int i = 0; i < moveCount; i++) {
+            carMove(cars);
+        }
+        return cars;
     }
 
     public static Map<String, Car> carMove(Map<String, Car> cars) {
         for (String s : cars.keySet()) {
-            cars.get(s).move(random());
+            printRacing(s, cars.get(s).move(random()));
         }
+        System.out.println();
         return cars;
+    }
+
+    public static void printRacing(String carName, int position) {
+        String printPosition = "";
+        for (int i = 0; i < position; i++) {
+            printPosition += "-";
+        }
+        System.out.println(carName + " : " + printPosition);
     }
 
     public static Map<String, Car> createCars(String[] carNames) {
@@ -40,10 +59,11 @@ public class Application {
 
     private static String[] inputCarNames(Scanner scanner) {
         System.out.println("경주할 자동차 이름을 입력하세요.\n(이름은 쉼표(,) 기준으로 구분)");
-        return scanner.next().split(",");
+        return scanner.nextLine().trim().split(",");
     }
 
     private static int inputMoveCount(Scanner scanner) {
+        System.out.println("시도할 회수는 몇 회 인가요?");
         return scanner.nextInt();
     }
 }
