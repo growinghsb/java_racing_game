@@ -35,4 +35,15 @@ class ApplicationTest {
         assertThat(cars.get("hsb")).isNotNull();
     }
 
+    @Test
+    public void 랜덤_값_출력_테스트() {
+        for (int i = 0; i < 100; i++) {
+            //given (~ 가정했을 때)
+            int random = random();
+
+            //when (~ 할 때), then (그렇다면)
+            assertThat(random).isGreaterThanOrEqualTo(0);
+            assertThat(random).isLessThanOrEqualTo(9);
+        }
+    }
 }
