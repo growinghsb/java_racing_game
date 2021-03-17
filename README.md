@@ -46,9 +46,12 @@
    
 - else 예약어를 쓰지 않는다.            
   - 힌트: if 조건절에서 값을 return하는 방식으로 구현하면 else를 사용하지 않아도 된다.          
-  - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.          
+  - else를 쓰지 말라고 하니 switch/case로 구현하는 경우가 있는데 switch/case도 허용하지 않는다.        
+   
 - 구현할 기능 목록을 작성하고, 기능 단위로 테스트 및 commit을 진행한다.       
-  - 이 때 [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.    
+  - 이 때 [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.     
+
+- 객체의 역할, 책임, 협력을 생각하며, 메시지를 통해 소통하게 구성하라.
 ***
 ## ✍🏻 입출력 요구사항
 ### ⌨️ 입력
