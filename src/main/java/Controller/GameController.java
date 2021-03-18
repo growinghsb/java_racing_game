@@ -1,38 +1,42 @@
 package Controller;
 
+import View.Progress;
 import racingcar.Car;
-import racingcar.Cars;
 import utils.Input;
+import utils.RandomUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
 
-    private Input input;
-    private Cars cars;
+    private int gameCount;
+    private List<Car> cars = new ArrayList<>();
 
     public GameController() {
-        this.input = new Input();
-        String[] carNames = inputCarName();
-        cars = new Cars(createCars(carNames));
+
+
+        createCars(inputCarName());
+        gameCount = Input.inputGameCount();
     }
 
     public void start() {
-
+        for (int i = 0; i < gameCount; i++) {
+            for (Car car : cars) {
+                car.move(RandomUtils.nextInt(0, 9));
+                Progress.drawStatus(car.getStatus());
+            }
+            System.out.println();
+        }
     }
 
     private String[] inputCarName() {
-        return input.inputCarName();
+        return Input.inputCarName();
     }
 
-    public List<Car> createCars(String[] carNames) {
-        List<Car> cars = new ArrayList<>();
-
+    private void createCars(String[] carNames) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
-
-        return cars;
     }
 }
