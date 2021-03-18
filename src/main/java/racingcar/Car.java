@@ -1,9 +1,10 @@
 package racingcar;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 
@@ -15,13 +16,26 @@ public class Car {
 
     public void move(int condition) {
         if (condition > 3) {
-            position ++;
+            position++;
         }
     }
 
-    public Map<String, Integer> getStatus () {
+    public Map<String, Integer> getStatus() {
         Map<String, Integer> carInfo = new HashMap<>();
         carInfo.put(name, position);
         return carInfo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.position - position;
     }
 }

@@ -4,7 +4,8 @@ import java.util.Map;
 
 public class Progress {
 
-    private Progress() {}
+    private Progress() {
+    }
 
     public static void drawStatus(Map<String, Integer> carInfo) {
         for (String key : carInfo.keySet()) {
