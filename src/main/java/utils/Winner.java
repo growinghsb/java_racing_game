@@ -4,7 +4,6 @@ import racingcar.Car;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Winner {
@@ -31,7 +30,8 @@ public class Winner {
     }
 
     private void carSort() {
-        Collections.sort(cars);
+       // Collections.sort(cars);
+        Collections.sort(cars, Car::compareTo);
         for (int i = 1; i < cars.size(); i++) {
             if (cars.get(0).getPosition() > cars.get(i).getPosition()) {
                 cars.removeAll(new ArrayList<>(cars.subList(i, PLAYER)));
